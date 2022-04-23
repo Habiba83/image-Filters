@@ -106,10 +106,10 @@ void black_and_white(){
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
 
-            if (image[i][j] > 127)
-                image[i][j] = 255;
+            if (image[i][j] > 127)//if the pixels grater than 127 so color more to be white
+                image[i][j] = 255;//getting the pixels white
             else
-                image[i][j] = 0;
+                image[i][j] = 0;//getting the pixels black
         }
     }
 }
@@ -119,9 +119,6 @@ void invert() {
         for (int j = 0; j < SIZE; j++) {
         //take the negative of the pixels value 
             image[i][j] = 255 - image[i][j];
-
-
-
         }
     }
 }
@@ -146,24 +143,20 @@ void merge(){
 void fliping_vertically() {
     for (int i = 0; i < (SIZE / 2); i++) {
         for (int j = 0; j < SIZE; j++) {
-            int temp = image[i][j];
-            image[i][j] = image[255 - i][j];
-            image[255 - i][j] = temp;
-
+            int temp = image[i][j];// creating variable for the new image
+            image[i][j] = image[255 - i][j];//getting the elements in the last row in the first row
+            image[255 - i][j] = temp;//saving the image in the variable
         }
     }
 }
 void fliping_horizontally(){
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < (SIZE/2); j++) {
-            int temp = image[i][j];
-            image[i][j] = image[i][255-j];
-            image[i][255-j] = temp;
-
+            int temp = image[i][j];//creating variable for the new image
+            image[i][j] = image[i][255-j];//getting the elements in the last index in a row to the first index and so on
+            image[i][255-j] = temp;//saving the new image
         }
-
     }
-
 }
 void fliping(){
     int choice;
@@ -171,7 +164,6 @@ void fliping(){
     cin>>choice;
     if (choice==1){
         fliping_vertically();}
-
     else if (choice ==2) {
         fliping_horizontally();}
     else
@@ -239,21 +231,14 @@ void rotate() {
         {
             for (int j=0;j<SIZE/2;j++)
             {
-
-
                 swap(image[i][j],image[i][SIZE-j-1]);
-
-
             }
         }
         for (int i=0;i<SIZE;i++)
         {
             for (int j=1+i;j<SIZE;j++)
             {
-
                 swap(image[i][j],image[255-i][255-j]);
-
-
             }
         }
     }
@@ -294,7 +279,8 @@ void detect_edges(){
             if ( ( image[i][j] < avg ) and ( image[i][j+1] < avg ) ){
                 while ( image[i][j+4] < avg){
                     if (image[i+1][j]<avg){
-                        image[i][j+2]=255;
+                        image[i][j+2]=255;//if the diff grater than 35 so tha pixel will be black and it is an edge
+                    else
                         j+=1;
                     }
                     else{
@@ -303,12 +289,11 @@ void detect_edges(){
                 }
             }
             if (image[i][j]>avg){
-                image[i][j] = 255;
+                image[i][j] = 255;//else the pixel will not be an edge and it will be white
             }
         }
     }
 }
-
 void shrink(){
     int n;
     //creating a new image
@@ -343,42 +328,30 @@ void mirror_image(){
     if(input==1){
         for(int i=0;i<SIZE;i++){
             for(int j=0;j<SIZE;j++) {
-                image[i][j] = image[i][SIZE - j];
-
-
+                image[i][j] = image[i][SIZE - j];//getting the pixels in the right side to the left side
             }
         }
-
     }
     if(input==2) {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                image[i][255-j] = image[i][j];
-
-
+                image[i][255-j] = image[i][j];//getting the pixels in the left side to the right side
             }
         }
     }
-
     if(input==3) {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                image[i][j] = image[SIZE - i][j];
+                image[i][j] = image[SIZE - i][j]; //getting the pixles in the lower part to the upper part
             }
-
         }
-
-
     }
     if(input==4) {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                image[SIZE-i][j] = image[i][j];
+                image[SIZE-i][j] = image[i][j];//getting the pixles in the upper part to the lower part
             }
-
         }
-
-
     }
 }
 void EnlargeImage(){
