@@ -43,7 +43,7 @@ void detect_edges();
 int main()
 {
     int user_choice;
-    cout<<"Ahlan ya user ya habebe what do you want to do today??"<<endl<<"1-Black&White Filter"<<endl<<"2-Invert Filter"<<endl<<"3-Merge Filter"<<endl<<"4-Flip Image"<<endl<<"5-Rotate Image"<<endl<<"6- Darken and Lighten Image"<<endl<<"7-Detect Image Edges \n8-Enlarge image \n9-Shrink Image \n10-Mirror Image \n11-Shuffle Image \n12-Blur Image \n0-Exit\n";
+    cout<<"Ahlan ya user ya habebe what do you want to do today?? \n1-Black&White Filter \n2-Invert Filter \n3-Merge Filter \n4-Flip Image \n5-Rotate Image \n6- Darken and Lighten Image \n7-Detect Image Edges \n8-Enlarge image \n9-Shrink Image \n10-Mirror Image \n11-Shuffle Image \n12-Blur Image \n0-Exit\n";
     cin>>user_choice;
     loadImage();
     if(user_choice==1)
@@ -70,7 +70,6 @@ int main()
         shuffleImage();
     else if (user_choice==12)
         blur();
-
     saveImage();
     return 0;
 }
