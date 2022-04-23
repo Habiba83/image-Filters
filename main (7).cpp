@@ -330,12 +330,16 @@ void EnlargeImage(){
 }
 void shrink(){
     int n;
+    //creating a new image
     unsigned char image2[SIZE][SIZE];
+    //taking the user's input
     cout << "1-shrink to 1/2 \n2-shrink to 1/3 \n3-shrink to 1/4" << endl;
     cin >> n;
+    //shrinking to the size the user chose
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             if(n==1){
+                //putting the pixels in the new image
                 image[i/2][j/2]=image[i][j];
                 image[i][j]=0;
                 image2[i][j]=image[i/2][j/2];}
@@ -578,8 +582,9 @@ void shuffleImage()
 void blur() {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
+            //fiding the avg of the pixels around each pixel
             image[i][j] = (image[i][j] + image[i][j + 1] + image[i][j - 1] + image[i + 1][j] + image[i - 1][j] +
-                           image[i - 1][j - 1] + image[i - 1][j + 1] + image[i + 1][j - 1] + image[i + 1][j + 1]) / 9;
+                        image[i - 1][j - 1] + image[i - 1][j + 1] + image[i + 1][j - 1] + image[i + 1][j + 1]) / 9;
         }
     }
 
